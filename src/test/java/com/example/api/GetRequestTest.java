@@ -24,16 +24,16 @@ public class GetRequestTest {
                 .statusCode(200)
                 .body("name", equalTo("Apple MacBook Pro 16"))
                 .body("data.year", equalTo(2019))
-                .body("data.price", lessThan(2000.00f))
+                .body("data.price" ,lessThan(2000))
                 .time(lessThan(sure))
                 .extract()
                 .response();
 
-        long duration = response.time();
-        assertTrue("API yanıt süresi çok uzun: " + duration + "ms", duration < sure);
+        long cevap = response.time();
+        assertTrue("API yanıt süresi çok uzun: " + cevap + "ms", cevap < sure);
 
         System.out.println("Yanıt JSON:");
         response.prettyPrint();
-        System.out.println("Yanıt süresi: " + duration + "ms");
+        System.out.println("Yanıt süresi: " + cevap + "ms");
     }
 }
