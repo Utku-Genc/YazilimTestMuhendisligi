@@ -24,8 +24,9 @@ public class GetRequestTest {
                 .statusCode(200)
                 .body("name", equalTo("Apple MacBook Pro 16"))
                 .body("data.year", equalTo(2019))
-                .body("data.price" ,lessThan(2000))
+                .body("data.price" ,lessThan(2000.00F))
                 .time(lessThan(sure))
+                //.log().all()
                 .extract()
                 .response();
 
